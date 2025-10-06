@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código Penal - Supremo Tribunal de Justiça High</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* bg-gray-900 */
+        }
+        .justice-gradient {
+            background: linear-gradient(to right, #6366f1, #a855f7); /* Indigo to Purple */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937; /* bg-gray-800 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5; /* indigo-600 */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4338ca; /* indigo-700 */
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <!-- Header Section -->
+        <header class="text-center mb-8 md:mb-12">
+            <div class="flex justify-center items-center gap-4 mb-2">
+                 <svg class="w-10 h-10 md:w-12 md:h-12 text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                </svg>
+                <h1 class="text-3xl md:text-5xl font-bold justice-gradient">Supremo Tribunal de Justiça High</h1>
+            </div>
+            <p class="text-md md:text-lg text-gray-400">Consulta ao Código Penal Oficial</p>
+        </header>
+
+        <!-- Search Bar Section -->
+        <div class="sticky top-4 z-10 mb-8">
+            <div class="relative">
+                <input type="text" id="searchInput"
+                       class="w-full bg-gray-800 border-2 border-gray-700 text-gray-200 rounded-lg py-3 px-5 pl-12 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
+                       placeholder="Pesquisar por artigo, nome do crime...">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Articles Grid -->
+        <main id="articlesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Article cards will be injected here by JavaScript -->
+        </main>
+        
+        <!-- No Results Message -->
+        <div id="noResults" class="hidden text-center py-16">
+            <svg class="mx-auto h-12 w-12 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+            </svg>
+            <h3 class="mt-2 text-xl font-semibold text-gray-300">Nenhum resultado encontrado</h3>
+            <p class="mt-1 text-md text-gray-500">Tente ajustar seus termos de pesquisa.</p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12 text-gray-500 text-sm">
+            <p>&copy; 2025 Supremo Tribunal de Justiça High. Todos os direitos reservados.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const penalCode = [
+            { art: '3', crime: 'Agressão corporal', pena: 25, multa: 2000 },
+            { art: '4', crime: 'Tentativa de homicídio', pena: 30, multa: 2000 },
+            { art: '5', crime: 'Pena máxima permitida', pena: 300, multa: 15000 },
+            { art: '6', crime: 'Homicídio de servidor público', pena: 60, multa: 3000 },
+            { art: '7', crime: 'Homicídio culposo', pena: 25, multa: 2000 },
+            { art: '8', crime: 'Homicídio doloso', pena: 25, multa: 2000 },
+            { art: '9', crime: 'Latrocínio', pena: 60, multa: 3000 },
+            { art: '10', crime: 'Perturbação da paz', pena: 2, multa: 500 },
+            { art: '11', crime: 'Ameaça', pena: 15, multa: 1500 },
+            { art: '12', crime: 'Extorsão', pena: 15, multa: 1500 },
+            { art: '13', crime: 'Calúnia, injúria e difamação', pena: 25, multa: 2500 },
+            { art: '14', crime: 'Sequestro', pena: 30, multa: 2000 },
+            { art: '17', crime: 'Crime ambiental', pena: 30, multa: 3000 },
+            { art: '18', crime: 'Apologia ao crime', pena: 20, multa: 1500 },
+            { art: '20', crime: 'Sequestro de oficial', pena: 35, multa: 3000 },
+            { art: '23', crime: 'Falsidade ideológica', pena: 30, multa: 2500 },
+            { art: '25', crime: 'Desacato', pena: 40, multa: 3000 },
+            { art: '27', crime: 'Obstrução de justiça', pena: 30, multa: 1200 },
+            { art: '28', crime: 'Resistência', pena: 30, multa: 2500 },
+            { art: '29', crime: 'Exoneração de oficial', pena: 20, multa: 3000 },
+            { art: '30', crime: 'Suborno', pena: 20, multa: 3000 },
+            { art: '31', crime: 'Produtos ilícitos', pena: 15, multa: 1500 },
+            { art: '32', crime: 'Ocultação de provas', pena: 35, multa: 1200 },
+            { art: '33', crime: 'Prevaricação', pena: 20, multa: 1500 },
+            { art: '34', crime: 'Abuso de autoridade', pena: 40, multa: 2500 },
+            { art: '35', crime: 'Falta de conduta policial', pena: 20, multa: 1500 },
+            { art: '36', crime: 'Tentativa de suborno', pena: 15, multa: 1500 },
+            { art: '38', crime: 'Dano ao patrimônio público', pena: 20, multa: 1500 },
+            { art: '39', crime: 'Desmanche de veículo', pena: 15, multa: 1200 },
+            { art: '40', crime: 'Invasão de base militar', pena: 60, multa: 4000 },
+            { art: '41', crime: 'Receptação', pena: 15, multa: 2000 },
+            { art: '42', crime: 'Furto', pena: 15, multa: 1500 },
+            { art: '43', crime: 'Roubo', pena: 30, multa: 2500 },
+            { art: '44', crime: 'Roubo a carro-forte', pena: 30, multa: 3000 },
+            { art: '45', crime: 'Roubo a viatura', pena: 40, multa: 3000 },
+            { art: '46', crime: 'Fuga de abordagem', pena: 15, multa: 1500 },
+            { art: '47', crime: 'Roubo / assalto a joalheria', pena: 30, multa: 3000 },
+            { art: '48', crime: 'Comunicação ou chamada falsa', pena: 40, multa: 3000 },
+            { art: '49', crime: 'Roubo a americanos', pena: 10, multa: 2500 },
+            { art: '50', crime: 'Furto de veículos', pena: 15, multa: 1200 },
+            { art: '51', crime: 'Roubo a ATM', pena: 25, multa: 2000 },
+            { art: '52', crime: 'Roubo a residência', pena: 30, multa: 2500 },
+            { art: '53', crime: 'Roubo a caixa eletrônico', pena: 25, multa: 2000 },
+            { art: '54', crime: 'Tráfico de armas (+10)', pena: 60, multa: 4000 },
+            { art: '55', crime: 'Tráfico de itens ilegais', pena: 30, multa: 3000 },
+            { art: '56', crime: 'Tráfico de munições (+1000)', pena: 60, multa: 4000 },
+            { art: '57', crime: 'Tráfico de drogas (+5)', pena: 20, multa: 3000 },
+            { art: '58', crime: 'Porte ilegal de dinheiro sujo', pena: 15, multa: 2000 },
+            { art: '59', crime: 'Tentativa de homicídio', pena: 30, multa: 2500 },
+            { art: '60', crime: 'Ocultação facial', pena: 5, multa: 300 },
+            { art: '61', crime: 'Utilização de armamento militar', pena: 25, multa: 3000 },
+            { art: '62', crime: 'Porte ilegal de armas', pena: 35, multa: 2500 },
+            { art: '63', crime: 'Posse de itens ilegais', pena: 15, multa: 1000 },
+            { art: '64', crime: 'Porte ilegal de armas brancas', pena: 5, multa: 1000 },
+            { art: '66', crime: 'Cúmplice', pena: 25, multa: 2000 },
+            { art: '67', crime: 'Posse de peças de arma', pena: 15, multa: 1000 },
+            { art: '68', crime: 'Posse de componentes químicos utilizados para fabricar drogas', pena: 25, multa: 2000 },
+            { art: '69', crime: 'Posse de drogas (1/5)', pena: 20, multa: 1350 },
+            { art: '70', crime: 'Aviãozinho (6 a 100)', pena: 15, multa: 2000 },
+            { art: '71', crime: 'Disparo de arma de fogo', pena: 20, multa: 2000 },
+            { art: '72', crime: 'Porte de munição (+5)', pena: 15, multa: 2000 },
+            { art: '74', crime: 'Direção perigosa', pena: 10, multa: 1000 },
+            { art: '75', crime: 'Voar em altitude irregular', pena: 25, multa: 1000 },
+            { art: '76', crime: 'Pousar em local proibido', pena: 5, multa: 1000 },
+            { art: '77', crime: 'Abandono de função', pena: 100, multa: 3000 },
+        ];
+
+        const articlesGrid = document.getElementById('articlesGrid');
+        const searchInput = document.getElementById('searchInput');
+        const noResults = document.getElementById('noResults');
+
+        // Function to render the articles
+        const renderArticles = (articles) => {
+            articlesGrid.innerHTML = '';
+            if (articles.length === 0) {
+                noResults.classList.remove('hidden');
+                articlesGrid.classList.add('hidden');
+            } else {
+                noResults.classList.add('hidden');
+                articlesGrid.classList.remove('hidden');
+            }
+
+            articles.forEach(item => {
+                const card = `
+                <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 shadow-lg hover:shadow-indigo-500/20 hover:border-indigo-500 transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex justify-between items-start">
+                        <h2 class="text-xl font-bold text-gray-100">${item.crime}</h2>
+                        <span class="bg-indigo-600 text-white text-sm font-semibold px-3 py-1 rounded-full">Art. ${item.art}</span>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-700 space-y-3">
+                        <div class="flex justify-between items-center text-gray-300">
+                            <span class="font-medium text-gray-400">Pena:</span>
+                            <span class="font-semibold text-lg text-amber-400">${item.pena} meses</span>
+                        </div>
+                        <div class="flex justify-between items-center text-gray-300">
+                            <span class="font-medium text-gray-400">Multa:</span>
+                            <span class="font-semibold text-lg text-green-400">${new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.multa)}</span>
+                        </div>
+                    </div>
+                </div>
+                `;
+                articlesGrid.innerHTML += card;
+            });
+        };
+
+        // Search functionality
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredArticles = penalCode.filter(item => 
+                item.crime.toLowerCase().includes(searchTerm) ||
+                `art. ${item.art}`.toLowerCase().includes(searchTerm) ||
+                item.art.toString().includes(searchTerm)
+            );
+            renderArticles(filteredArticles);
+        });
+
+        // Initial render
+        document.addEventListener('DOMContentLoaded', () => {
+            renderArticles(penalCode);
+        });
+
+    </script>
+</body>
+</html>
